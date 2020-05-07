@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "selected":"../components/selected/selected",
+    "concert":"../components/concert/concert",
+    "opera":"../components/opera/opera"
+  }
+}

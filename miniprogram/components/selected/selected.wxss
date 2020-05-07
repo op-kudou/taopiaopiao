@@ -1,0 +1,24 @@
+/* components/selected/selected.wxss */
+swiper image{
+  width: 100%;
+}
+swiper-item{
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+scroll-view{
+  height: 100px;
+}
+.movie-item{
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+}
+.item{
+  width: 100px;
+  height: 100px;
+}
+.item image{
+   width: 100px;
+  height: 100px;
+}

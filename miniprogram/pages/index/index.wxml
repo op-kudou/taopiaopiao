@@ -1,0 +1,25 @@
+<view class="top">
+  <text class="address">{{address}}</text>
+  <input class="search" placeholder="搜影片，影院，演出" placeholder-class="grey">
+  <text class="iconfont icon-fangdajing big"></text>
+  
+  </input>
+</view>
+<view class="navTab">
+  <view wx:for="{{navTab}}" wx:key="index" data-id="{{index}}"
+  bindtap="currentTab" class="{{currentTab==index?'cur':''}}">
+  {{item}}
+  </view>
+</view>
+<!-- 这是内容 -->
+<view class="orderInfo">
+  <view data-id='0' bindtap="currentTab" class="{{currentTab==0?'show':'hidden'}}">
+    <selected></selected>
+  </view>
+  <view data-id='1' class="{{currentTab==1?'show':'hidden'}}">
+    <concert></concert>
+  </view>
+  <view data-id='2' class="{{currentTab==2?'show':'hidden'}}">
+    <opera></opera>
+  </view>
+</view>

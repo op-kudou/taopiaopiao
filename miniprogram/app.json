@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/movie/movie",
+    "pages/find/find",
+    "pages/show/show",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF3366",
+    "navigationBarTitleText": "淘票票",
+    "navigationBarTextStyle": "white"
+  },
+  "permission":{
+    "scope.userLocation":{"desc":"需要获取你当前位置"}
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar":{
+    "selectedColor":"#ff3366",
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/images/shouye.png",
+        "selectedIconPath": "/assets/images/shouye_1.png"
+      },
+      {
+        "pagePath": "pages/movie/movie",
+        "text": "电影",
+        "iconPath": "/assets/images/dianying.png",
+        "selectedIconPath": "/assets/images/dianying_1.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "/assets/images/find.png",
+        "selectedIconPath": "/assets/images/find_1.png"
+      },
+      {
+        "pagePath": "pages/show/show",
+        "text": "演出",
+        "iconPath": "/assets/images/yanchu.png",
+        "selectedIconPath": "/assets/images/yanchu_1.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/assets/images/wode.png",
+        "selectedIconPath": "/assets/images/wode_1.png"
+      }
+    ]
+  }
+}

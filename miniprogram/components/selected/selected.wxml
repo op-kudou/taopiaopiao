@@ -1,0 +1,23 @@
+<swiper indicator-dots="true" autoplay="true" indicator-active-color="#a7a6a4" indicator-active-color="#fff"
+circular="true">
+  <block class='picbox' wx:for="{{swiperImg}}" wx:key="index">
+    <swiper-item>
+      <image mode="widthFix" src="{{item}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view>
+  <text>即将上映</text>
+  <scroll-view scroll-x>
+    <view class="movie-item">
+
+      <block wx:for="{{soonData}}" wx:key="index">
+        <view class="item">
+          <image src="{{item.poster}}" mode="widthFix"></image>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
