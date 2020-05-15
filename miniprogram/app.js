@@ -14,7 +14,13 @@ App({
         // traceUser: true,
       })
     }
-
-    this.globalData = {}
+    var userid;
+    // 获取用户openid
+    wx.cloud.callFunction({
+      name: 'login'
+    }).then((res) => {
+      userid = res.result.openid;
+      this.globalData = { userid }
+    });
   }
 })

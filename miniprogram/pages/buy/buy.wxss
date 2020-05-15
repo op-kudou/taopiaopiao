@@ -1,0 +1,35 @@
+.top{
+  width: 100%;
+  height: auto;
+  background-color: #000066;
+  color:rgb(245, 243, 253);
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.moviename{
+  font-size: 24px;
+  height: 34px;
+  line-height: 34px;
+}
+.detail{
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.body{
+  height: calc(100% - 94px);
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #000;
+}
+.group{
+  width: 100%;
+  height: auto;
+}
+.groupname{
+
+}

@@ -25,6 +25,7 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .userinfo, .uploader, .tunnel {
@@ -154,4 +155,7 @@ page {
   font-size: 24rpx;
   line-height: 36rpx;
   word-break: break-all;
+}
+.bold{
+  font-weight: bold;
 }

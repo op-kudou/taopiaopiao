@@ -48,7 +48,7 @@ Page({
       }
     });
     
-    this.getmovielist();
+    
   },
   currentTab(e)
   {
@@ -68,12 +68,77 @@ Page({
         $url: 'movielist'
       }
     }).then((res) => {
-      for (let i in res.result.data) {
+      for (let i in res.result.data) 
+      {
+        // 处理图片
         res.result.data[i].poster = 'https://gw.alicdn.com/' + res.result.data[i].poster + '_160x160Q75.jpg';
-        console.log(res.result.data[i]);
+        // 处理数字
+        if(res.result.data[i].wantCount >= 10000)
+        {
+          res.result.data[i].wantCount = parseInt(res.result.data[i].wantCount/1000)/10 + '万'
+        }
+        else
+        {
+          let gw = res.result.data[i].wantCount % 10;
+          let qw = parseInt(res.result.data[i].wantCount / 10);
+          res.result.data[i].wantCount = qw + ',' + gw;
+        }
+        // 处理日期
+        let time = res.result.data[i].openTime.split('-');
+        let month = time[1];
+        let day = time[2]
+        if(month[0] == '0' )
+        {
+          month = month.slice(1);
+        }
+        if (day[0] == '0')
+        {
+          day = day.slice(1);
+        }
+        res.result.data[i].openmonth = month;
+        res.result.data[i].openday = day;
       }
       this.setData({
         movielist:res.result.data
+      });
+      this.setLocalList();
+    });
+  },
+  getonviewlist()
+  {
+    wx.cloud.callFunction({
+      name: 'movie',
+      data: {
+        $url: 'onviewlist'
+      }
+    }).then((res) => {
+      for (let i in res.result.data) {
+        // 处理图片
+        res.result.data[i].poster = 'https://gw.alicdn.com/' + res.result.data[i].poster + '_160x160Q75.jpg';
+        // 处理数字
+        if (res.result.data[i].wantCount >= 10000) {
+          res.result.data[i].wantCount = parseInt(res.result.data[i].wantCount / 1000) / 10 + '万'
+        }
+        else {
+          let gw = res.result.data[i].wantCount % 10;
+          let qw = parseInt(res.result.data[i].wantCount / 10);
+          res.result.data[i].wantCount = qw + ',' + gw;
+        }
+        // 处理日期
+        let time = res.result.data[i].openTime.split('-');
+        let month = time[1];
+        let day = time[2]
+        if (month[0] == '0') {
+          month = month.slice(1);
+        }
+        if (day[0] == '0') {
+          day = day.slice(1);
+        }
+        res.result.data[i].openmonth = month;
+        res.result.data[i].openday = day;
+      }
+      this.setData({
+        onviewlist: res.result.data
       });
       this.setLocalList();
     });
@@ -83,6 +148,20 @@ Page({
     wx.setStorage({
       key: 'movielist',
       data: this.data.movielist,
+    })
+    wx.setStorage({
+      key: 'onviewlist',
+      data: this.data.onviewlist,
+    })
+  },
+  onShow()
+  {
+    this.getmovielist();
+    this.getonviewlist();
+  },
+  search() {
+    wx.navigateTo({
+      url: '../search/search'
     })
   }
 

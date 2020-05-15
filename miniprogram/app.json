@@ -1,10 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/movie/movie",
-    "pages/find/find",
-    "pages/show/show",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/moviedetail/moviedetail",
+    "pages/buyticket/buyticket",
+    "pages/camera/camera",
+    "pages/want/want",
+    "pages/search/search",
+    "pages/buy/buy"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -13,14 +16,16 @@
     "navigationBarTitleText": "淘票票",
     "navigationBarTextStyle": "white"
   },
-  "permission":{
-    "scope.userLocation":{"desc":"需要获取你当前位置"}
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要获取你当前位置"
+    }
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
-  "tabBar":{
-    "selectedColor":"#ff3366",
-    "list":[
+  "tabBar": {
+    "selectedColor": "#ff3366",
+    "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
@@ -28,22 +33,10 @@
         "selectedIconPath": "/assets/images/shouye_1.png"
       },
       {
-        "pagePath": "pages/movie/movie",
-        "text": "电影",
+        "pagePath": "pages/camera/camera",
+        "text": "影院",
         "iconPath": "/assets/images/dianying.png",
         "selectedIconPath": "/assets/images/dianying_1.png"
-      },
-      {
-        "pagePath": "pages/find/find",
-        "text": "发现",
-        "iconPath": "/assets/images/find.png",
-        "selectedIconPath": "/assets/images/find_1.png"
-      },
-      {
-        "pagePath": "pages/show/show",
-        "text": "演出",
-        "iconPath": "/assets/images/yanchu.png",
-        "selectedIconPath": "/assets/images/yanchu_1.png"
       },
       {
         "pagePath": "pages/mine/mine",

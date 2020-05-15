@@ -1,0 +1,20 @@
+<view class="count">共{{wantlist.length}}部影片</view>
+<view class="movie">
+  <block wx:for="{{wantlist}}" wx:key="index">
+    <view bindtap="detail" data-movieid="{{item.movieid}}" data-isplay="{{item.played}}">
+    <view class="time">{{item.time}}</view>
+      <view class="detail">
+        <view class="pic">
+          <image src="{{item.poster}}" mode="heightFix"></image>
+        </view>
+        <view class="msg">
+          <view class="title">{{item.showName}}</view>
+          <view class="wantcount"><text class="orange">{{item.wantCount}}</text>人想看</view>
+          <view class="director">{{item.director}}</view>
+          <view class="onshow">{{item.opentime}}在{{item.features.openCountry}}上映</view>
+        </view>
+      </view>
+    </view>
+    
+  </block>
+</view>

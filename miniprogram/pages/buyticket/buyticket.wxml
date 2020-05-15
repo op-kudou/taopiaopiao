@@ -1,0 +1,19 @@
+<view class="camera">
+  <block wx:for="{{cameralist}}" wx:key="index">
+    <view class="cameradetail" bindtap="buy" data-cameraid="{{item._id}}">
+      <view class="item">
+        <view class='name'>{{item.nm}}</view>
+        <view class="num">暂无场次</view>
+      </view>
+      <view class="item">
+        <view class="addressdetail">{{item.addr}}</view>
+        <view class="distend">{{item.distance}}</view>
+      </view>
+      <view class="item">
+        <text>标签1</text>
+        <text>标签2</text>
+        <text>标签3</text>
+      </view>
+    </view>
+  </block>
+</view>

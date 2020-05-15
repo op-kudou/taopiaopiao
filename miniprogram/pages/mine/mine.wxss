@@ -1,1 +1,265 @@
-/* miniprogram/pages/mine/mine.wxss */
+page{
+  background-color: #f5f5f5;
+  text-align: center;
+}
+.top{
+  width: 200%;
+  height: 200px;
+  /* background-color: #FF3366; */
+  background-image: linear-gradient(to right,#fd418e,#ff3068);
+  border-radius: 50%;
+  position: absolute;
+  left: -50%;
+  top: -20px;
+}
+.msg{
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  margin-top: 50px;
+  position: relative;
+}
+.img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 220px;
+  border: 1px solid rgb(252, 220, 232);
+  padding: 6px;
+}
+.img::after{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top:100px;
+  left: 100px;
+  border: 1px solid rgb(252, 220, 232);
+  background-color: greenyellow;
+  z-index: 1000;
+}
+.img>image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  
+}
+.username{
+  font-size: 20px;
+  width: 200px;
+  height: 80px;
+  line-height: 80px;
+  color: #fff;
+  text-align: left;
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 240px;
+}
+.body{
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 140px;
+  left: 0px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.vip{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+.v-left{
+  width: 20%;
+  display: inline-block;
+  color: #b08537;
+}
+.v-middle{
+  width: 40%;
+  height: 40px;
+  line-height: 40px;
+  margin:10px 20px;
+  display: inline-block;
+  border-left: 1px solid #f0f0f0;
+  color:#9c9c9c;
+}
+.v-right{
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 10px;
+}
+.v-right>image{
+  width: 90%;
+  height: 90%;
+  vertical-align: middle;
+}
+.ticket{
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 10px 0;
+  position: relative;
+}
+.one,.two,.three{
+  width: 33%;
+  height: 80px;
+  display: inline-block;
+  align-items: center;
+  position: absolute;
+}
+.one{
+  top:0;
+  left: 0;
+}
+.two{
+  top: 0;
+  left: 33%;
+}
+.three{
+  top:0;
+  right:0;
+}
+.pic{
+  width: 98%;
+  height: 30px;
+  vertical-align: middle;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.pic>text{
+  font-size: 30px;
+}
+.pic>image{
+  width: 30px;
+  height: 30px;
+}
+.t-word{
+  width: 98%;
+  height: 40px;
+  font-size: 12px;
+}
+.discount{
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.title{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 13px;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: left;
+}
+.card{
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+.svip{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-image: linear-gradient(to right,#fee8d1,#fcecdc);
+  border-radius: 10px;
+  display: flex;
+}
+.s-left{
+  width: 60%;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 10px;
+  display: inline-block;
+  color: #b48d6c;
+}
+.left-top{
+  height: 30px;
+  line-height: 36px;
+  font-size: 14px;
+  text-align: left;
+  font-weight: bold;
+}
+.left-bottom{
+  height: 30px;
+  line-height: 23px;
+  font-size: 12px;
+  text-align: left;
+}
+.s-right{
+  width: 30%;
+  height: 60px;
+  line-height: 60px;
+  margin-right: 10px;
+  display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  background: linear-gradient(#be8f73,#ffdcbc);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.reward{
+  width: 100%;
+  height: 120px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 10px 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.want{
+  width: 100%;
+  height: 80px;
+  display: flex;
+}
+.w-left{
+  width: 50%;
+  height: 80px;
+}
+.w-pic{
+  margin-top: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
+.w-pic>image{
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+}
+.w-word{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  text-align: left;
+  vertical-align: middle;
+}
+.w-word-top{
+  font-size: 13px;
+  height: 38px;
+  line-height: 40px;
+}
+.w-word-count{
+  font-size: 12px;
+  color: #747474;
+  line-height: 0;
+}
+.w-right{
+  width: 50%;
+  height: 80px;
+}

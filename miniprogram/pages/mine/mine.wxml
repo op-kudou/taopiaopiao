@@ -1,2 +1,92 @@
 <!--miniprogram/pages/mine/mine.wxml-->
-<text>我的</text>
+<view class="top">
+  <view class="msg">
+    <view class="img">
+    <image mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="username">{{userInfo.nickName}}</view>
+  </view>
+</view>
+<view class="body">
+  <view class="vip">
+    <view class="v-left">会员中心</view>
+    <view class="v-middle">加油升级</view>
+    <view class="v-right">
+      <image src="../../assets/images/lh.jpg"></image>
+    </view>
+  </view>
+  <view class="ticket">
+    <view class="one">
+      <view class="pic">
+        <image src="../../assets/images/dianying_1.png" mode="widthFix"></image>
+      </view>
+      <view class="t-word">电影票</view>
+    </view>
+    <view class="two">
+      <view class="pic">
+        <image src="../../assets/images/xiaoshi.png" mode="widthFix"></image>
+      </view>
+      <view class="t-word">小食</view>
+    </view>
+    <view class="three">
+      <view class="pic">
+        <image src="../../assets/images/ticket.png" mode="widthFix"></image>
+      </view>
+      <view class="t-word">演出票</view>
+    </view>
+  </view>
+  <view class="discount">
+    <view class="title">我的优惠</view>
+    <view class="card">
+      <view class="one">
+        <view class="pic">
+          <text class="iconfont icon-youhuiquan"></text>
+        </view>
+        <view class="t-word">优惠券</view>
+      </view>
+      <view class="two">
+        <view class="pic">
+          <text class="iconfont icon-vip"></text>
+        </view>
+        <view class="t-word">权益卡</view>
+      </view>
+      <view class="three">
+        <view class="pic">
+          <text class="iconfont icon-qia"></text>
+        </view>
+        <view class="t-word">乐影卡</view>
+      </view>
+
+    </view>
+    <view class="svip">
+      <view class="s-left">
+        <view class="left-top">88VIP吃/玩/听/看/买 一卡通</view>
+        <view class="left-bottom">尊享购物权益 多重会员身份</view>
+      </view>
+      <view class="s-right">88VIP</view>
+    </view>
+  </view>
+  <view class="reward">
+    <view class="title">我的记录</view>
+    <view class="want">
+      <view class="w-left" bindtap="onClick">
+        <view class="w-pic">
+          <image src="../../assets/images/book.png"></image>
+        </view>
+        <view class="w-word">
+          <view class="w-word-top">想看</view>
+          <view class="w-word-count">共{{count}}部</view>
+        </view>
+      </view>
+      <view class="w-right">
+        <view class="w-pic">
+          <image src="../../assets/images/book.png"></image>
+        </view>
+        <view class="w-word">
+          <view class="w-word-top">看过</view>
+          <view class="w-word-count">共0部</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

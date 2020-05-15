@@ -1,0 +1,51 @@
+<view class="top">
+  <input focus="true" class="search" placeholder="搜影片、影院、演出" placeholder-class="grey" value="{{iptval}}"
+  bindinput="search">
+    <text class="iconfont icon-fangdajing big"></text> 
+  </input>
+  <view class="cancel" bindtap="cancel">取消</view>
+</view>
+
+<!-- 电影 -->
+<view class="movie">
+  <view wx:if="{{searchlist.length>0}}" class="m-name">电影</view>
+  <block wx:for="{{searchlist}}" wx:key="index">
+    <view bindtap="detail" data-movieid="{{item._id}}" data-isplay="{{item.played}}">
+    <view class="time">{{item.time}}</view>
+      <view class="detail">
+        <view class="pic">
+          <image src="{{item.poster}}" mode="heightFix"></image>
+        </view>
+        <view class="msg">
+          <view class="title">{{item.showName}}</view>
+          <view class="wantcount">淘票票评分 <text class="orange"> {{item.remark?item.remark:'暂无评分'}}</text></view>
+          <view class="director">{{item.director}}</view>
+          <view class="onshow">{{item.opentime}} {{item.features.year}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </block>
+</view>
+
+<!-- 影院 -->
+<view class="movie">
+  <view wx:if="{{cameralist.length>0}}" class="m-name">影院</view>
+  <block wx:for="{{cameralist}}" wx:key="index">
+    <view class="cameradetail">
+      <view class="item">
+        <view class='name'>{{item.nm}}</view>
+        <view class="num">暂无场次</view>
+      </view>
+      <view class="item">
+        <view class="addressdetail">{{item.addr}}</view>
+        <view class="distend">{{item.distance}}</view>
+      </view>
+      <view class="item">
+        <text>标签1</text>
+        <text>标签2</text>
+        <text>标签3</text>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,4 +1,6 @@
 // components/selected/selected.js
+var until = require('../../untils/until.js');
+var userid;
 Component({
   /**
    * 组件的属性列表
@@ -17,35 +19,58 @@ Component({
     'https://m.iqiyipic.com/common/lego/20200501/566a293addfc4772a9b374d8d36e9345.jpg',
     'https://m.iqiyipic.com/common/lego/20200504/9a3c6c50ea2441e9be3342884d49b89f.jpg',
     ],
-    soonData:[]
+    soonData:[],
+    isWant:[],
+    flag:false,
+    wantlist:[],
+    onviewData:[]
   },
-  created(){
-    wx.request({
-      url: 'https://m.iqiyi.com',
-      success(res)
-      {
-        // console.log('res:',res)
-      },
-      fail(err)
-      {
-        console.log('err:',err);
-      }
-    });
-
-    // 获取即将上映电影
-    wx.getStorage({
-      key: 'movielist',
-      success: (res)=>
-      {
-        console.log('res:',res);
-        this.setData({
-          soonData:res.data
-        });
-      }
-    })
-    
-  },
+  lifetimes:{
+    ready() {
+      wx.request({
+        url: 'https://m.iqiyi.com',
+        success(res) {
+          // console.log('res:',res)
+        },
+        fail(err) {
+          console.log('err:', err);
+        }
+      });
+      // 获取即将上映电影
+      wx.getStorage({
+        key: 'movielist',
+        success: (res) => {
+          this.setData({
+            soonData: res.data
+          });
+          console.log('soon:', this.data.soonData);
+        }
+      });
+      // 获取热映电影
+      wx.getStorage({
+        key: 'onviewlist',
+        success: (res) => {
+          this.setData({
+            onviewData: res.data
+          });
+          console.log('onview:', this.data.onviewData);
+        }
+      });
+    },
+  },  
   methods: {
-
+    onClick(e)
+    {
+      var movieid = e.currentTarget.dataset.movieid;
+      wx.navigateTo({
+        url: '../moviedetail/moviedetail?movieid=' + movieid + '&isplay=' + false
+      })
+    },
+    onClicktwo(e) {
+      var movieid = e.currentTarget.dataset.movieid;
+      wx.navigateTo({
+        url: '../moviedetail/moviedetail?movieid=' + movieid +'&isplay=' + true
+      })
+    }
   }
 })

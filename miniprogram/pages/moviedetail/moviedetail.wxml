@@ -1,0 +1,53 @@
+<view class="top">
+  <view class="moviemsg">
+    <view class="image">
+      <image src="{{moviemsg.poster}}" mode="widthFix"></image>
+    </view>
+    <view class='msgright'>
+      <view class="moviename">{{moviemsg.showName}}</view>
+      <view class="infomation">{{moviemsg.duration}}分钟/{{moviemsg.type}}/{{moviemsg.country}}</view>
+      <view class="infomation">{{moviemsg.openTime}} {{moviemsg.features.openCountry}}上映</view>
+      <button bindtap="wanted">{{isWant?'已想看':'想看'}}</button>
+    </view>
+  </view>
+  <view class="count">
+    <text class="c-left">淘票票口碑</text>
+    <text class="c-right"><text class="bold">{{moviemsg.wantCount}}</text>人想看</text>
+  </view>
+</view>
+<view class="bottom">
+  <view class="title">简介</view>
+  <view bindtap="onClick" class="{{isFlag?'introduce':'introduce high'}}">
+    {{moviemsg.introduce}}
+    <view class="open">{{isFlag?'展开':'收起'}}</view>
+  </view>
+  <view class="title">演职人员</view>
+  <scroll-view scroll-x>
+    <view class="movie-item">
+      <block  wx:for="{{actorlist}}" wx:key="index">
+        <view class="actor">
+          <image mode="heightFix" src="{{item.pic}}"/>
+          <view>{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="actornum">全部{{actorlist.length}}位演职人员</view>
+
+  <view class="title">剧照</view>
+  <scroll-view scroll-x>
+    <view class="movie-item">
+      <block  wx:for="{{trailer}}" wx:key="index">
+        <view class="trailer">
+          <image mode="heightFix" src="{{item}}"/>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="actornum">全部{{trailer.length}}张剧照</view>
+</view>
+
+<!-- 买票 -->
+<view class="{{isplay?'buy':'hidden'}}" bindtap="buy">选座购票</view>
+
+

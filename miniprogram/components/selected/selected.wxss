@@ -1,13 +1,26 @@
 /* components/selected/selected.wxss */
+@import "/style/iconfont.wxss";
+swiper{
+  width: 100%;
+  height: 100px
+}
 swiper image{
   width: 100%;
 }
 swiper-item{
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-radius: 15px;
+  height: 100px;
+}
+.soon{
+ margin-top: 20px; 
+}
+.title{
+  font-weight: bold;
+  font-size: 15px;
 }
 scroll-view{
-  height: 100px;
+  height: 200px;
+  margin-top: 10px;
 }
 .movie-item{
   display: flex;
@@ -16,9 +29,46 @@ scroll-view{
 }
 .item{
   width: 100px;
-  height: 100px;
+  height:130px;
+  border-radius: 10px;
+  margin-right: 10px;
+  position: relative;
 }
 .item image{
-   width: 100px;
-  height: 100px;
+  width: 100px;
+  height: 130px;
+  border-radius: 10px;
+}
+.bold{
+  font-weight: bold
+}
+.want{
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  background-image: linear-gradient(rgba(233, 230, 230, 0), #020202b6);
+  color:#ff9c1b;
+  font-size: 12px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+.moviename{
+  width: 100px;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.opentime{
+  font-size: 12px;
+  color: #999;
 }

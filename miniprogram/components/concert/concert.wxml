@@ -1,7 +1,3 @@
 <!--components/concert/concert.wxml-->
-<text>演唱会</text>
-<view>2222222</view>
-<view>2222222</view>
-<view>2222222</view>
-<view>2222222</view>
-<view>2222222</view>
+<text>演唱会没有数据</text>
+

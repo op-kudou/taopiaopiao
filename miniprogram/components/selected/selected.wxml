@@ -7,17 +7,33 @@ circular="true">
   </block>
 </swiper>
 
-<view>
-  <text>即将上映</text>
+<view class="soon">
+  <text class="title">即将上映</text>
   <scroll-view scroll-x>
     <view class="movie-item">
-
-      <block wx:for="{{soonData}}" wx:key="index">
+      <block wx:for="{{soonData}}" wx:key="index" wx:if="{{index<9}}">
         <view class="item">
-          <image src="{{item.poster}}" mode="widthFix"></image>
+          <image src="{{item.poster}}" bindtap="onClick" data-movieid="{{item._id}}"></image>
+          <text class="want"><text class="bold">{{item.wantCount}}</text>人想看</text>
+          <text class="moviename">{{item.showName}}</text>
+          <text class="opentime">{{item.openmonth}}月{{item.openday}}日上映</text>
         </view>
       </block>
     </view>
   </scroll-view>
 </view>
-
+<view class="soon">
+  <text class="title">热映影片</text>
+  <scroll-view scroll-x>
+    <view class="movie-item">
+      <block wx:for="{{onviewData}}" wx:key="index" wx:if="{{index<9}}">
+        <view class="item">
+          <image src="{{item.poster}}" bindtap="onClicktwo" data-movieid="{{item._id}}"></image>
+          <text class="want"><text class="bold">{{item.wantCount}}</text>人想看</text>
+          <text class="moviename">{{item.showName}}</text>
+          <text class="opentime">{{item.openmonth}}月{{item.openday}}日上映</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

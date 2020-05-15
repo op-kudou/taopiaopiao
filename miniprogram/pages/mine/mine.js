@@ -1,65 +1,66 @@
 // miniprogram/pages/mine/mine.js
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    userInfo:{}
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    // 查询用户信息
+    wx.getUserInfo({
+      success:res=>
+      {
+        this.setData({
+          userInfo: res.userInfo
+        })
+      },
+      fail:err=>
+      {
+        console.log('err:',err);
+      }
+    });
+    console.log('id:', app.globalData.userid)
+    // 查询该用户有多少想看的电影
+    wx.cloud.callFunction({
+      name:'movie',
+      data:{
+        userid: app.globalData.userid,
+        $url:'want'
+      }
+    }).then(res=>
+    {
+      console.log('res:',res);
+      this.setData({
+        count:res.result.data.length
+      })
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  onClick()
+  {
+    wx.navigateTo({
+      url: '../want/want',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   onReady: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
 
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
 
   }
