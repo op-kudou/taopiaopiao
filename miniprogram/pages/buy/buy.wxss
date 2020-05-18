@@ -29,7 +29,43 @@
 .group{
   width: 100%;
   height: auto;
+  display: flex;
 }
 .groupname{
-
+  display: inline-block;
+  text-align: left;
+  width:30%;
+  height: 40px;
+}
+.tip{
+  width:100%;
+  height: 40px;
+}
+.money{
+  display: inline-block;
+  text-align: right;
+  color:#ff33b1;
+  width: 70%;
+}
+input{
+  width: 70%;
+  display: inline-block;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+.tag{
+  display: block;
+  font-size: 14px;
+  color:#999;
+}
+.pay{
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #FF3366;
+  color:#fff;
+  text-align: center;
+  bottom: 0;
+  left: 0;
 }

@@ -4,7 +4,8 @@
     <view class="img">
     <image mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
     </view>
-    <view class="username">{{userInfo.nickName}}</view>
+    <view class="username">{{userInfo.nickName}} 
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>   </view>
   </view>
 </view>
 <view class="body">

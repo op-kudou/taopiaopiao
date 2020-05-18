@@ -17,12 +17,13 @@
 </view>
 <view class="bottom">
   <view class="title">简介</view>
-  <view bindtap="onClick" class="{{isFlag?'introduce':'introduce high'}}">
+  <view wx:if="{{moviemsg.introduce}}" bindtap="onClick" class="{{isFlag?'introduce':'introduce high'}}">
     {{moviemsg.introduce}}
     <view class="open">{{isFlag?'展开':'收起'}}</view>
   </view>
+  <view wx:else class="introduce">暂无简介</view>
   <view class="title">演职人员</view>
-  <scroll-view scroll-x>
+  <scroll-view wx:if="{{actorlist.length>0}}" scroll-x>
     <view class="movie-item">
       <block  wx:for="{{actorlist}}" wx:key="index">
         <view class="actor">
@@ -32,6 +33,7 @@
       </block>
     </view>
   </scroll-view>
+  <view wx:else>暂无演员照片</view>
   <view class="actornum">全部{{actorlist.length}}位演职人员</view>
 
   <view class="title">剧照</view>

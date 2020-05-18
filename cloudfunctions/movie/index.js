@@ -173,5 +173,28 @@ exports.main = async (event, context) => {
         return res;
       })
   });
+
+  // 根据影院查询该影院有哪些上映电影
+  app.router('ticketmovie', async (ctx, next) => {
+    ctx.body = await db.collection('ticket')
+      .where({
+        cameraid: event.cameraid
+      }).get()
+      .then(res => {
+        return res;
+      })
+  });
+  // 删除want表数据
+  app.router('delwant', async (ctx, next) => {
+    await db.collection('want')
+      .where({
+        movieid: event.movieid,
+        userid: event.userid
+      }).remove()
+      .then(res => {
+        return res;
+      })
+  });
+
   return app.serve();
 }

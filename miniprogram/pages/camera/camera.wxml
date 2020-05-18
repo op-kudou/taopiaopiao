@@ -1,13 +1,14 @@
 <view class="top">
   <text class="address">{{address}}</text>
-  <input class="search" placeholder="搜影院名称" placeholder-class="grey">
-  <text class="iconfont icon-fangdajing big"></text> 
-  </input>
+  <view bindtap="search" class="search">
+    <text class="iconfont icon-fangdajing big"></text> 
+    <text class="grey">搜影片，影院，演出</text>
+  </view>
 </view>
 
 <view class="camera">
   <block wx:for="{{cameralist}}" wx:key="index">
-    <view class="cameradetail">
+    <view class="cameradetail" data-cameraid="{{item._id}}" bindtap="detail">
       <view class="item">
         <view class='name'>{{item.nm}}</view>
         <view class="num">暂无场次</view>

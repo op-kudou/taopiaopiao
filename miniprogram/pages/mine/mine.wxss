@@ -12,6 +12,12 @@ page{
   left: -50%;
   top: -20px;
 }
+button{
+  display: inline-block;
+  width: 100px;
+  background-color: transparent;
+  color: #fff;
+}
 .msg{
   width: 100%;
   height: 100px;
@@ -30,21 +36,10 @@ page{
   border: 1px solid rgb(252, 220, 232);
   padding: 6px;
 }
-.img::after{
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top:100px;
-  left: 100px;
-  border: 1px solid rgb(252, 220, 232);
-  background-color: greenyellow;
-  z-index: 1000;
-}
 .img>image{
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  
+  border-radius: 50%; 
 }
 .username{
   font-size: 20px;

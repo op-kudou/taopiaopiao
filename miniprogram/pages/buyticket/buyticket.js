@@ -15,7 +15,6 @@ Page({
   onLoad: function (options) {
     movieid = options.movieid;
     let id = [];
-    console.log("电影id：",movieid);
     // 根据电影id查询有哪些影院有上映
     wx.cloud.callFunction({
       name:'movie',
@@ -25,7 +24,6 @@ Page({
       }
     }).then(res=>
     {
-      console.log('买票：',res);
       id = res.result.data;
 
       // 根据id查询影院详细数据
@@ -39,13 +37,10 @@ Page({
           }
         }).then(res=>
         {
-          console.log('详情：', this.data.cameralist, res.result.data);
           this.data.cameralist.push(res.result.data[0]);
-          console.log('hou:', this.data.cameralist)
           this.setData({
             cameralist: this.data.cameralist
           })
-
         })
       }
     })

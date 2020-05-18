@@ -11,7 +11,11 @@ Page({
     address:'',
     cameralist:[]
   },
-
+  search() {
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -63,7 +67,13 @@ Page({
       })
     })
   },
-  
+  detail(e)
+  {
+    console.log(e.currentTarget.dataset.cameraid);
+    wx.navigateTo({
+      url: `../cameradetail/cameradetail?cameraid=${e.currentTarget.dataset.cameraid}`
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

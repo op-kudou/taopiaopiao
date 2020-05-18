@@ -1,4 +1,5 @@
 // miniprogram/pages/buy/buy.js
+var app = getApp();
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
   data: {
     movie:{},
     camera:{},
-    money:0
+    money:0,
+    phone:''
   },
 
   /**
@@ -26,7 +28,6 @@ Page({
       }
     }).then(res=>
     {
-      // console.log('影片详情：',res.result);
       this.setData({
         movie:res.result.data
       })
@@ -41,7 +42,6 @@ Page({
         $url: 'moviedetail'
       }
     }).then(res => {
-      // console.log('影院详情：', res.result);
       this.setData({
         camera:res.result.data
       })
@@ -56,10 +56,47 @@ Page({
         $url: 'ticket'
       }
     }).then(res => {
-      // console.log('票价：', res.result);
       this.setData({
         money:res.result.data[0].price
       })
     })
+  },
+  phone(e)
+  {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  buy()
+  {
+    if(this.data.phone.length == 11)
+    {
+      wx.showModal({
+        title: '提示',
+        content: '是否确认要付款？',
+        success:res=>
+        {
+          if(res.confirm)
+          {
+            wx.showToast({
+              title: '付款成功',
+              success:res=>
+              {
+                wx.switchTab({
+                  url: '../index/index',
+                })
+              }
+            });
+          }
+        }
+      });
+    }  
+    else
+    {
+      wx.showToast({
+        icon:'error',
+        title: '请输入正确手机号码'
+      });
+    }
   }
 })

@@ -79,7 +79,6 @@ Page({
                 if (this.data.movielist[j]._id == this.data.wantlist[i].movieid) 
                 {
                   Object.assign(this.data.wantlist[i], this.data.movielist[j]);
-                  console.log('want:', this.data.wantlist)
                 }
                 this.setData({
                   wantlist: this.data.wantlist
@@ -94,11 +93,37 @@ Page({
 
     
   },
+  del(e)
+  {
+    let that = this;
+    wx.showModal({
+      title: '确认信息',
+      content: '是否删除该想看电影',
+      success:res=>
+      {
+        if(res.confirm==true)
+        {
+          wx.cloud.callFunction({
+            name: 'movie',
+            data: {
+              movieid: e.currentTarget.dataset.movieid,
+              userid: app.globalData.userid,
+              $url: 'delwant'
+            }
+          }).then(res => {
+            that.onLoad();
+          })
+        }
+      }
+    })
+    console.log(e);
+    // e.currentTarget.dataset.movieid删除该id的want表数据
+    // 用户id：app.globalData.userid
+    
+  },
   detail(e)
   {
-    // e.currentTarget.dataset.movieid
     let { movieid, isplay } = e.currentTarget.dataset;
-    console.log(e);
     wx.navigateTo({
       url: '../moviedetail/moviedetail?movieid=' + movieid + '&isplay=' + false
     })

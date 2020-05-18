@@ -1,8 +1,13 @@
-<view class="count">共{{wantlist.length}}部影片</view>
-<view class="movie">
-  <block wx:for="{{wantlist}}" wx:key="index">
-    <view bindtap="detail" data-movieid="{{item.movieid}}" data-isplay="{{item.played}}"  bindlongpress="del">
-    <view class="time">{{item.time}}</view>
+<view class="top">
+  <view class="name">{{camera.nm}}</view>
+  <view class="address">{{camera.addr}}</view>
+  <view>可退票|观影小食</view>
+</view>
+
+<view wx:if="{{movie.length>0}}">
+  <view class="movie">
+  <block wx:for="{{movie}}" wx:key="index">
+    <view bindtap="detail" data-movieid="{{item._id}}" data-isplay="{{item.played}}">
       <view class="detail">
         <view class="pic">
           <image src="{{item.poster}}" mode="heightFix"></image>
@@ -18,3 +23,6 @@
     
   </block>
 </view>
+</view>
+
+<view wx:else class="tip">暂无影片上映</view>

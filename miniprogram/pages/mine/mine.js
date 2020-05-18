@@ -6,19 +6,35 @@ Page({
   },
   onLoad: function (options) {
     // 查询用户信息
-    wx.getUserInfo({
+    wx.getSetting({
       success:res=>
       {
-        this.setData({
-          userInfo: res.userInfo
-        })
-      },
-      fail:err=>
-      {
-        console.log('err:',err);
+        if (res.authSetting['scope.userInfo'])
+        {
+          wx.getUserInfo({
+            success: res => {
+
+              this.setData({
+                userInfo: res.userInfo
+              })
+            },
+            fail: err => {
+              console.log('err:', err);
+            }
+          });
+        }
+        else
+        {
+          wx.openSetting({
+            success:res=>
+            {
+              console.log(res);
+            }
+          })
+        }
       }
-    });
-    console.log('id:', app.globalData.userid)
+    })
+    
     // 查询该用户有多少想看的电影
     wx.cloud.callFunction({
       name:'movie',
@@ -28,11 +44,14 @@ Page({
       }
     }).then(res=>
     {
-      console.log('res:',res);
       this.setData({
         count:res.result.data.length
       })
     });
+  },
+  getUserInfo()
+  {
+    this.onLoad();
   },
   onClick()
   {

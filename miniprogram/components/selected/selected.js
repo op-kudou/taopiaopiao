@@ -43,7 +43,6 @@ Component({
           this.setData({
             soonData: res.data
           });
-          console.log('soon:', this.data.soonData);
         }
       });
       // 获取热映电影
@@ -53,7 +52,6 @@ Component({
           this.setData({
             onviewData: res.data
           });
-          console.log('onview:', this.data.onviewData);
         }
       });
     },
